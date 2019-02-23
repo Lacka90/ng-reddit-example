@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { UIModule } from 'src/app/ui.module';
 import { SubredditsGuard } from './guards/subreddits.guard';
 import { SubredditsRoutingModule } from './subreddits-routing.module';
@@ -11,13 +10,7 @@ import { SubredditsEffects } from './store/subreddits.effects';
 
 @NgModule({
   declarations: [SubredditsComponent],
-  imports: [
-    SubredditsRoutingModule,
-    CommonModule,
-    UIModule,
-    InfiniteScrollModule,
-    EffectsModule.forFeature([SubredditsEffects]),
-  ],
+  imports: [SubredditsRoutingModule, CommonModule, UIModule, EffectsModule.forFeature([SubredditsEffects])],
   providers: [SubredditService, SubredditsGuard],
 })
 export class SubredditsModule {}
