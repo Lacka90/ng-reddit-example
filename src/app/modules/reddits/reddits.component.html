@@ -1,0 +1,21 @@
+<div *ngIf="redditsState$ | async as state">
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [value]="state.type" (change)="changeSort($event)">
+    <mat-button-toggle value="hot">Hot</mat-button-toggle>
+    <mat-button-toggle value="new">New</mat-button-toggle>
+    <mat-button-toggle value="controversial">Controversial</mat-button-toggle>
+    <mat-button-toggle value="top">Top</mat-button-toggle>
+    <mat-button-toggle value="rising">Rising</mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <mat-list>
+    <mat-list-item *ngFor="let post of state.reddits">
+      <img matListAvatar [src]="post.thumbnail" onerror="this.src='/assets/default.jpg'">
+      <h3 matLine><a target="_blank" [href]="'https://reddit.com' + post.permalink">{{post.title}}</a></h3>
+      <p matLine>
+        <span> Subreddit: </span>
+        <span><a [routerLink]="['/subreddit', post.subreddit, state.type]">{{post.subreddit}}</a></span>
+      </p>
+    </mat-list-item>
+  </mat-list>
+  <mat-progress-bar mode="query" [class.hidden]="!state.loading"></mat-progress-bar>
+</div>
