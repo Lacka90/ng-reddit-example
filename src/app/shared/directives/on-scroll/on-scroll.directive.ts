@@ -16,7 +16,7 @@ export class OnScrollDirective implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.scrollEvent = fromEvent(window, 'scroll')
-      .pipe(debounceTime(0))
+      .pipe(debounceTime(250))
       .subscribe(() => {
         if (this.appOnScrollDisabled) {
           return;
