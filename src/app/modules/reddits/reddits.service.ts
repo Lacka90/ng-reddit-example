@@ -21,7 +21,7 @@ export interface ListResponse {
 export class RedditsService {
   constructor(private http: HttpClient) {}
 
-  getRedditPosts(after: string, type?: string) {
+  getRedditPosts(after?: string, type?: string) {
     return this.http.get<ListResponse>(`${url(type)}${after ? `?after=${after}` : ''}`).pipe(
       map(({ data: { after: nextPageToken, children } }) => {
         return { reddits: children.map(c => c.data), nextPageToken };

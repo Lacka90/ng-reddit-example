@@ -1,4 +1,4 @@
-<div *ngIf="redditsState$ | async as state">
+<div *ngIf="redditsState$ | async as state" (appOnScroll)="scrolled(state)" [appOnScrollDisabled]="state.loading">
   <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [value]="state.type" (change)="changeSort($event)">
     <mat-button-toggle value="hot">Hot</mat-button-toggle>
     <mat-button-toggle value="new">New</mat-button-toggle>

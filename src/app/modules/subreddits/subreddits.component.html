@@ -1,4 +1,4 @@
-<div *ngIf="subredditsState$ | async as state">
+<div *ngIf="subredditsState$ | async as state" (appOnScroll)="scrolled(state)" [appOnScrollDisabled]="state.loading">
   <a [routerLink]="['/', state.type]" mat-icon-button class="margin-right">
     <mat-icon aria-label="Back to home page">arrow_back</mat-icon>
   </a>
