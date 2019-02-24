@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { fromEvent } from 'rxjs';
-import { debounceTime, withLatestFrom, takeUntil } from 'rxjs/operators';
+import { debounceTime, withLatestFrom } from 'rxjs/operators';
 import { IAppState } from 'src/app/store/store.reducers';
 import { GetRedditPosts } from './store/reddits.actions';
 import { getRedditsState } from './store/reddits.reducer';
