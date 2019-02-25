@@ -1,5 +1,5 @@
-import { RedditsActions, RedditsActionTypes } from './reddits.actions';
 import { createFeatureSelector } from '@ngrx/store';
+import { RedditsActions, RedditsActionTypes } from './reddits.actions';
 
 export interface Post {
   title: string;
@@ -54,6 +54,6 @@ export function reducer(state = initialState, action: RedditsActions): RedditsSt
       return state;
     }
   }
-}
+};
 
 export const getRedditsState = createFeatureSelector<RedditsState>('reddits');

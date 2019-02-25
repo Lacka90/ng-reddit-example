@@ -8,8 +8,8 @@ const url = (type = '') => `https://www.reddit.com/${type}.json`;
 export interface ListResponse {
   kind: string;
   data: {
-    after: string | null;
-    before: string | null;
+    after: string;
+    before: string;
     children: {
       kind: string;
       data: Post;

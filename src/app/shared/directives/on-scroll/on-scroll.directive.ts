@@ -1,4 +1,4 @@
-import { Directive, EventEmitter, OnDestroy, OnInit, Output, Input } from '@angular/core';
+import { Directive, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { fromEvent, Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
@@ -6,7 +6,7 @@ import { debounceTime } from 'rxjs/operators';
   selector: '[appOnScroll]',
 })
 export class OnScrollDirective implements OnInit, OnDestroy {
-  private scrollEvent: Subscription;
+  private scrollEvent: Subscription | undefined;
 
   @Output()
   appOnScroll: EventEmitter<void> = new EventEmitter();

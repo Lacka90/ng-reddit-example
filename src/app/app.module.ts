@@ -6,7 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { reducers } from './store/store.reducers';
+import { reducers, REDUCERS_TOKEN } from './store/store.reducers';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,14 +14,19 @@ import { reducers } from './store/store.reducers';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot(reducers),
+    StoreModule.forRoot(REDUCERS_TOKEN),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: false,
     }),
     EffectsModule.forRoot([]),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: REDUCERS_TOKEN,
+      useValue: reducers,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

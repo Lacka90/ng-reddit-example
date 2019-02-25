@@ -9,7 +9,7 @@ export enum SubredditsActionTypes {
 
 export class GetSubreddits implements Action {
   readonly type = SubredditsActionTypes.GET_SUBREDDIT_POSTS;
-  constructor(public payload: { subreddit: string; nextPageToken: string; reset: boolean; type?: string }) {}
+  constructor(public payload: { subreddit: string; nextPageToken: string; reset: boolean; type: string }) {}
 }
 
 export class GetSubredditsSuccess implements Action {

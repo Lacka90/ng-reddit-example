@@ -9,7 +9,7 @@ export enum RedditsActionTypes {
 
 export class GetRedditPosts implements Action {
   readonly type = RedditsActionTypes.GET_REDDIT_POSTS;
-  constructor(public payload: { nextPageToken: string; reset: boolean; type?: string }) {}
+  constructor(public payload: { nextPageToken: string; reset: boolean; type: string }) {}
 }
 
 export class GetRedditPostsSuccess implements Action {

@@ -20,7 +20,7 @@ export class RedditsComponent {
     this.store.dispatch(new GetRedditPosts({ nextPageToken, reset: false, type }));
   }
 
-  changeSort(state) {
+  changeSort(state: { value: string }) {
     const type = state.value;
     this.router.navigate(['..', type], { relativeTo: this.route });
   }
